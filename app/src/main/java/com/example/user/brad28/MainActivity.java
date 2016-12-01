@@ -47,4 +47,7 @@ public class MainActivity extends AppCompatActivity {
         title.setText("III");
     }
 
+    public F1 getF1(){return f1;}
+    public F2 getF2(){return f2;}
+
 }
