@@ -15,6 +15,9 @@ import android.widget.TextView;
 public class F1 extends Fragment {
     private TextView mesg;
     private String strLottery = null;
+    private MainActivity main;
+
+
     public static F1 newInstance() {
         F1 fragment = new F1();
         return fragment;
@@ -28,6 +31,9 @@ public class F1 extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.v("brad", "onCreate");
+
+        main = (MainActivity) getActivity();
+
     }
 
     @Override
@@ -48,11 +54,26 @@ public class F1 extends Fragment {
                 doBtn();
             }
         });
+
+        View btn2 = view.findViewById(R.id.f1btn2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doBtn2();
+            }
+        });
+
+
         return view;
     }
     private void doBtn(){
         strLottery = "Lottery: " + (int)(Math.random()*49+1);
         mesg.setText(strLottery);
+    }
+
+    private void doBtn2(){
+        main.changeTitle();
+        main.change(null);
     }
 
 }
